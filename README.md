@@ -9,16 +9,16 @@ Lower your health, slower your rise
 
 
 Main things we need:
-- Balloon movement
-- Gun shooting (from balloon)
-- Collecting flares
-- Lighting fires/updrafts
-- Walking
-- Entering/Exiting Balloon
-- Bird Enemies
-- Health
-- Start/End Game
-- Entrance scene (basic text box!)
+- Balloon movement - Zach
+- Gun shooting (from balloon) - Zach
+- Collecting flares - Nathan
+- Lighting fires/updrafts - Nathan
+- Walking - Zach
+- Entering/Exiting Balloon - Zach
+- Bird Enemies - Nathan
+- Character Health - Zach
+- Start/End Game - Nathan
+- Entrance scene (basic text box!) - Nathan
 
 
 
