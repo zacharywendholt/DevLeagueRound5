@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BirdEnemy1 : MonoBehaviour
 {
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Flare")
+        {
+            // it dies
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

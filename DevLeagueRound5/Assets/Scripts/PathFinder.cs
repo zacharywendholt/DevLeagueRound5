@@ -45,6 +45,8 @@ public class PathFinder : MonoBehaviour
         }
         else
         {
+            
+            // it damages the balloon
             Destroy(gameObject);
         }
     }
