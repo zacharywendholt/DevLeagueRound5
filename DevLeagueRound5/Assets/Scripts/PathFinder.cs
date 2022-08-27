@@ -16,6 +16,7 @@ public class PathFinder : MonoBehaviour
     {
         waypoints = enemyConfig.GetWaypoints();
         transform.position = waypoints[waypointIndex].position;
+
     }
 
     // Update is called once per frame
@@ -26,11 +27,17 @@ public class PathFinder : MonoBehaviour
 
     void FollowPath()
     {
+        Vector3 targetPosition;
+        if(waypointIndex == waypoints.Count - 1)
+        {
+            waypoints[waypointIndex] = GameObject.FindWithTag("Baloon").transform;
+            
+        }
         if(waypointIndex < waypoints.Count)
         {
-            Vector3 targetPosition = waypoints[waypointIndex].position;
+            targetPosition = waypoints[waypointIndex].position;
             float delta = enemyConfig.GetMoveSpeed() * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition,delta);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
             if(transform.position == targetPosition)
             {
                 waypointIndex++;
