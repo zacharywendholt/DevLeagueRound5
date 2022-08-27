@@ -11,6 +11,7 @@ public class Fire : MonoBehaviour
         if(other.tag == "Flare")
         {
             transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 
