@@ -10,7 +10,11 @@ public class Player : MonoBehaviour
     public float maxWalkingSpeed;
     public bool inBaloon;
     private bool touchingBaloon;
+    [SerializeField] int _throwSpeed;
     [SerializeField] int floatSpeed;
+
+    public GameObject flarePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,16 @@ public class Player : MonoBehaviour
         // going to have to probably add a check to make sure it is grounded / touching the baloon.
         if (Input.GetKeyDown("space") & touchingBaloon) {
             changeBetweenBaloonAndWalking();
+        }
+
+        if (Input.GetMouseButtonDown(0)) {
+            Vector3 clickLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 throwForce = clickLocation - transform.position;
+            throwForce = throwForce.normalized * _throwSpeed;
+            
+            GameObject flare = Instantiate(flarePrefab, transform.position, Quaternion.identity);
+            flare.GetComponent<Rigidbody2D>().AddForce(throwForce, ForceMode2D.Impulse);
+
         }
     }
 

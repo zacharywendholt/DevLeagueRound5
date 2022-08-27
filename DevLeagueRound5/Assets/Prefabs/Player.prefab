@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 12.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2518534833217775405}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,9 @@ MonoBehaviour:
   maxHorizontalFloatingSpeed: 3
   maxWalkingSpeed: 7
   inBaloon: 0
+  _throwSpeed: 15
   floatSpeed: 10
+  flarePrefab: {fileID: 3620769136727105122, guid: 696e8931bd633dd458891c52e9e68c3f, type: 3}
 --- !u!50 &2518534833217775404
 Rigidbody2D:
   serializedVersion: 4
@@ -209,7 +211,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2518534833217775405
 BoxCollider2D:
   m_ObjectHideFlags: 0

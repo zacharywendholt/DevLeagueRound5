@@ -289,9 +289,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2518534832879827454, guid: dd50147ec9508084c865c020f6e5cd13, type: 3}
+      propertyPath: orthographic size
+      value: 12.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2518534833217775402, guid: dd50147ec9508084c865c020f6e5cd13, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518534833217775404, guid: dd50147ec9508084c865c020f6e5cd13, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518534833217775407, guid: dd50147ec9508084c865c020f6e5cd13, type: 3}
+      propertyPath: _throwSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2518534833217775569, guid: dd50147ec9508084c865c020f6e5cd13, type: 3}
       propertyPath: m_RootOrder
