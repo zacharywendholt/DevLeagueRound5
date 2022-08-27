@@ -40,14 +40,15 @@ public class Player : MonoBehaviour
             changeBetweenBaloonAndWalking();
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) & numberOfFlares > 0) {
             Vector3 clickLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 throwForce = clickLocation - transform.position;
             throwForce = throwForce.normalized * _throwSpeed;
             
             GameObject flare = Instantiate(flarePrefab, transform.position, Quaternion.identity);
             flare.GetComponent<Rigidbody2D>().AddForce(throwForce, ForceMode2D.Impulse);
-
+            numberOfFlares -= 1;
+            updateFlareText();
         }
     }
 
