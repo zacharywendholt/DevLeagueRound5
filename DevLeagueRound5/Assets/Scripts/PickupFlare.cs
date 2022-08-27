@@ -18,6 +18,8 @@ public class PickupFlare : MonoBehaviour
             }
         }
     }
+
+    
     
     
     // Start is called before the first frame update

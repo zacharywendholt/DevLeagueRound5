@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flare : MonoBehaviour
 {
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,9 @@ public class Flare : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Destroy(gameObject);
     }
 }
