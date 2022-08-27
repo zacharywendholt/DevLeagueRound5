@@ -20,10 +20,10 @@ Main things we need:
 Nathan
 
 Zach Todo
-- Gun shooting (from balloon) - Zach
 - Character Health - Zach
 
 Zach Finished
+- Gun shooting (from balloon) - Zach
 - Balloon movement - Zach
 - Walking - Zach
 - Entering/Exiting Balloon - Zach

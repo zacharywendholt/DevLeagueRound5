@@ -1,25 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
 
+    
+    public GameObject flarePrefab;
     public Rigidbody2D rb;
+    public TextMeshProUGUI  textMesh;
+
+    [SerializeField] int floatSpeed;
     public float maxHorizontalFloatingSpeed;
     public float maxWalkingSpeed;
     public bool inBaloon;
     private bool touchingBaloon;
     [SerializeField] int _throwSpeed;
-    [SerializeField] int floatSpeed;
+    private int numberOfFlares;
+    
 
-    public GameObject flarePrefab;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         inBaloon = false;
         touchingBaloon = false;
+        numberOfFlares = 0;
+        updateFlareText();
     }
 
     // Update is called once per frame
@@ -74,6 +84,17 @@ public class Player : MonoBehaviour
         else {
             rb.gravityScale = 1;
         }
+    }
+
+
+    private void updateFlareText() {
+        textMesh.text ="Flares: " + numberOfFlares;
+    }
+
+
+    public void collectedFlare() {
+        numberOfFlares += 1;
+        updateFlareText();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
