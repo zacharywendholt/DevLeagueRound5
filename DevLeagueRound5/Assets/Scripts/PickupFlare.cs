@@ -10,6 +10,9 @@ public class PickupFlare : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if(!player.inBaloon)
             {
+                
+                player.collectedFlare();
+                Destroy(gameObject);
                 // pick up the item, add to inventory
                 // destroy it              
             }
