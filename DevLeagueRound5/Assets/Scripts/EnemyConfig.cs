@@ -8,6 +8,7 @@ public class EnemyConfig : ScriptableObject
 {
     [SerializeField] Transform pathPrefab;
     [SerializeField] float moveSpeed = 5f;
+
     
     public Transform GetStartingWaypoint()
     {
@@ -27,6 +28,13 @@ public class EnemyConfig : ScriptableObject
     public float GetMoveSpeed()
     {
         return moveSpeed;
+    }
+
+    public void setWaypoint(int index, Transform newPosition)
+    {
+        
+
+
     }
 
 }
