@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     
     public GameObject flarePrefab;
     public Rigidbody2D rb;
-    public TextMeshProUGUI  textMesh;
+    public TextMeshProUGUI flareText;
+    public TextMeshProUGUI baloonText;
 
     [SerializeField] int floatSpeed;
     public float maxHorizontalFloatingSpeed;
     public float maxWalkingSpeed;
     public bool inBaloon;
+    public bool inUpdraft;
     private bool touchingBaloon;
     [SerializeField] int _throwSpeed;
     private int numberOfFlares;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         inBaloon = false;
+        inUpdraft = false;
         touchingBaloon = false;
         numberOfFlares = 0;
         updateFlareText();
@@ -65,10 +68,16 @@ public class Player : MonoBehaviour
 
         float currentHorizontalVelocity = Vector2.Dot(rb.velocity, Vector2.right);
         float currentVerticalVelocity = Vector2.Dot(rb.velocity, Vector2.up);
+
+        if (inUpdraft) {
+            rb.AddForce(new Vector2(0, floatSpeed));
+        }
+
+        
         
         if (inBaloon) {
             // After testing this needs to be changed to only allow horizontal movement. 
-            Vector2 newDirection = new Vector2(horizontalMovement * ( Mathf.Abs(maxHorizontalFloatingSpeed) - (horizontalMovement * currentHorizontalVelocity)), verticalMovement * floatSpeed);
+            Vector2 newDirection = new Vector2(horizontalMovement * ( Mathf.Abs(maxHorizontalFloatingSpeed) - (horizontalMovement * currentHorizontalVelocity)), 0);
             rb.AddForce(newDirection, ForceMode2D.Force);
         } else {
             rb.velocity = new Vector2(maxWalkingSpeed * horizontalMovement, currentVerticalVelocity);
@@ -89,7 +98,11 @@ public class Player : MonoBehaviour
 
 
     private void updateFlareText() {
-        textMesh.text ="Flares: " + numberOfFlares;
+        flareText.text ="Flares: " + numberOfFlares;
+    }
+
+    public void updateBaloonText() {
+        baloonText.text = "Baloon Health: " + GameObject.FindWithTag("Baloon").GetComponent<Baloon>().getHealth();
     }
 
 
@@ -102,12 +115,18 @@ public class Player : MonoBehaviour
         if (other.tag == "Baloon") {
             touchingBaloon = true;
         }
+        if (other.tag == "Upstream") {
+            inUpdraft = true;
+        }
     }
     
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Baloon") {
             touchingBaloon = false;
+        }
+        if (other.tag == "Upstream") {
+            inUpdraft = false;
         }
     }
 }

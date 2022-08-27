@@ -46,7 +46,7 @@ public class PathFinder : MonoBehaviour
         else
         {
             
-            // it damages the balloon
+            GameObject.FindWithTag("Baloon").GetComponent<Baloon>().decreaseHealth();
             Destroy(gameObject);
         }
     }
