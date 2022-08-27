@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class BirdEnemy1 : MonoBehaviour
 {
+
+[SerializeField] float moveSpeed = 3f;
+
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Flare")
         {
             // it dies
+            Destroy(gameObject);
+        }
+        if(other.tag == "Baloon")
+        {
+            other.GetComponent<Baloon>().decreaseHealth();
             Destroy(gameObject);
         }
     }
@@ -20,10 +28,13 @@ public class BirdEnemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // spawning 
-        // move around (pathfinding stuff in unity)
-        // collide with player, and damage
-        // maybe make a bird that shoots back?
-        // different colors?
+        FollowPath();
+    }
+
+    void FollowPath()
+    {
+        Vector3 targetPosition = GameObject.FindWithTag("Baloon").transform.position;
+        float delta = moveSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
     }
 }

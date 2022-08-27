@@ -433,7 +433,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.2
+  orthographic size: 27.73
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -492,7 +492,7 @@ Transform:
   - {fileID: 2518534832879827425}
   - {fileID: 1461106371}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2518534833217775406
 SpriteRenderer:
@@ -535,8 +535,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3724635, g: 0.5849056, b: 0.42627597, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5f9b64d68748cd5409682efb4d281950, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -562,8 +562,8 @@ MonoBehaviour:
   rb: {fileID: 2518534833217775404}
   flareText: {fileID: 648080199}
   baloonText: {fileID: 396988391}
-  floatSpeed: 7
-  maxHorizontalFloatingSpeed: 3
+  floatSpeed: 5
+  maxHorizontalFloatingSpeed: 4
   maxWalkingSpeed: 7
   inBaloon: 0
   inUpdraft: 0
@@ -606,7 +606,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
